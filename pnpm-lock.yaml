@@ -8,6 +8,9 @@ dependencies:
   axios:
     specifier: ^1.5.1
     version: 1.5.1
+  axios-retry:
+    specifier: ^3.8.0
+    version: 3.8.0
   element-plus:
     specifier: ^2.4.0
     version: 2.4.0(vue@3.3.4)
@@ -131,6 +134,13 @@ packages:
     hasBin: true
     dependencies:
       '@babel/types': 7.23.0
+
+  /@babel/runtime@7.23.2:
+    resolution: {integrity: sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      regenerator-runtime: 0.14.0
+    dev: false
 
   /@babel/types@7.23.0:
     resolution: {integrity: sha512-0oIyUfKoI3mSqMvsxBdclDwxXKXAUA8v/apZbc+iSyARYou1o8ZGDxbUYyLFoW2arqS2jDGqJuZvv1d/io1axg==}
@@ -936,6 +946,13 @@ packages:
 
   /asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
+    dev: false
+
+  /axios-retry@3.8.0:
+    resolution: {integrity: sha512-CfIsQyWNc5/AE7x/UEReRUadiBmQeoBpSEC+4QyGLJMswTsP1tz0GW2YYPnE7w9+ESMef5zOgLDFpHynNyEZ1w==}
+    dependencies:
+      '@babel/runtime': 7.23.2
+      is-retry-allowed: 2.2.0
     dev: false
 
   /axios@1.5.1:
@@ -1764,6 +1781,11 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /is-retry-allowed@2.2.0:
+    resolution: {integrity: sha512-XVm7LOeLpTW4jV19QSH38vkswxoLud8sQ57YwJVTPWdiaI9I8keEhGFpBlslyVsgdQy4Opg8QOLb8YRgsyZiQg==}
+    engines: {node: '>=10'}
+    dev: false
+
   /is-stream@2.0.1:
     resolution: {integrity: sha512-hFoiJiTl63nn+kstHGBtewWSKnQLpyb155KHheA1l39uvtO9nWIop1p3udqPcUd/xbF1VLMO4n7OI6p7RbngDg==}
     engines: {node: '>=8'}
@@ -2298,6 +2320,10 @@ packages:
     dependencies:
       picomatch: 2.3.1
     dev: true
+
+  /regenerator-runtime@0.14.0:
+    resolution: {integrity: sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==}
+    dev: false
 
   /resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
