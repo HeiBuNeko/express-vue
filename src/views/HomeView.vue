@@ -20,9 +20,12 @@
             <DelayReq />
           </el-col>
         </el-row>
-        <el-row>
-          <el-col :span="24">
+        <el-row :gutter="20">
+          <el-col :span="12">
             <ChatESReq />
+          </el-col>
+          <el-col :span="12">
+            <ChatFReq />
           </el-col>
         </el-row>
       </el-main>
@@ -39,6 +42,7 @@ import { useDark, useToggle } from '@vueuse/core'
 import VideoReq from './components/VideoReq.vue'
 import DelayReq from './components/DelayReq.vue'
 import ChatESReq from './components/ChatESReq.vue'
+import ChatFReq from './components/ChatFReq.vue'
 
 // 暗黑模式
 const isDark = useDark()
