@@ -1,4 +1,5 @@
 import axios, { type AxiosRequestConfig } from 'axios'
+import axiosRetry from 'axios-retry'
 
 const request = axios.create({
   baseURL: 'http://localhost:3000',
@@ -32,5 +33,11 @@ request.interceptors.response.use(
     return Promise.reject(error)
   }
 )
+axiosRetry(axios, {
+  retries: 3, // 设置重试次数
+  retryDelay: () => 500, // 设置重试延迟时间
+  shouldResetTimeout: true, // 重置请求超时时间
+  retryCondition: (error) => ['ECONNABORTED', 'ERR_NETWORK'].includes(error.code!) // 重试条件
+})
 
 export default request

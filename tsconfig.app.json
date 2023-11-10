@@ -17,7 +17,9 @@
       ]
     },
     "types": [
-      "element-plus/global"
+      "vite/client",
+      "element-plus/global",
+      "unplugin-icons/types/vue"
     ]
   }
 }
