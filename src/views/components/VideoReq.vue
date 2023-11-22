@@ -1,9 +1,11 @@
 <template>
-  <el-card shadow="hover" class="card-layout">
-    <template #header> 视频传输 </template>
-    <el-button type="primary" plain @click="fetchVideo">下载视频</el-button>
-    <el-button type="danger" plain @click="abortDownload">终止下载</el-button>
-  </el-card>
+  <el-col :span="12">
+    <el-card shadow="hover" class="card-layout">
+      <template #header> 视频传输 </template>
+      <el-button type="primary" plain @click="fetchVideo">下载视频</el-button>
+      <el-button type="danger" plain @click="abortDownload">终止下载</el-button>
+    </el-card>
+  </el-col>
 </template>
 
 <script setup lang="ts">

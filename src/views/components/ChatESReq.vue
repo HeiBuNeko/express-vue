@@ -1,10 +1,12 @@
 <template>
-  <el-card shadow="hover" class="card-layout">
-    <template #header> Chat EventSource 传输 </template>
-    <div class="chat-res">{{ ChatRes }}</div>
-    <el-button type="primary" plain @click="connectSSE">建立SSE连接</el-button>
-    <el-button type="danger" plain @click="closeSSE">关闭SSE连接</el-button>
-  </el-card>
+  <el-col :span="12">
+    <el-card shadow="hover" class="card-layout">
+      <template #header> Chat EventSource 传输 </template>
+      <div class="chat-res">{{ ChatRes }}</div>
+      <el-button type="primary" plain @click="connectSSE">建立SSE连接</el-button>
+      <el-button type="danger" plain @click="closeSSE">关闭SSE连接</el-button>
+    </el-card>
+  </el-col>
 </template>
 
 <script setup lang="ts">

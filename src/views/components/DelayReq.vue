@@ -1,9 +1,11 @@
 <template>
-  <el-card shadow="hover" class="card-layout">
-    <template #header> 延迟传输 </template>
-    <el-button type="primary" plain @click="sendRequeset">发送请求</el-button>
-    <el-button type="danger" plain @click="stopRequeset">终止请求</el-button>
-  </el-card>
+  <el-col :span="12">
+    <el-card shadow="hover" class="card-layout">
+      <template #header> 延迟传输 </template>
+      <el-button type="primary" plain @click="sendRequeset">发送请求</el-button>
+      <el-button type="danger" plain @click="stopRequeset">终止请求</el-button>
+    </el-card>
+  </el-col>
 </template>
 
 <script setup lang="ts">

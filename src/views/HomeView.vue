@@ -13,21 +13,21 @@
       </el-header>
       <el-main class="main-layout">
         <el-row :gutter="20">
-          <el-col :span="12">
-            <VideoReq />
-          </el-col>
-          <el-col :span="12">
-            <DelayReq />
-          </el-col>
+          <!-- 视频传输 -->
+          <VideoReq />
+          <!-- 延迟传输 -->
+          <DelayReq />
         </el-row>
         <el-row :gutter="20">
-          <el-col :span="12">
-            <ChatESReq />
-          </el-col>
-          <el-col :span="12">
-            <ChatFReq />
-          </el-col>
+          <!-- Chat EventSource 传输 -->
+          <ChatESReq />
+          <!-- Chat Fetch 传输 -->
+          <ChatFReq />
         </el-row>
+        <!-- Iframe 文件浏览 -->
+        <FileIframe />
+        <!-- Canvas 文件浏览 -->
+        <FileCanvas />
       </el-main>
       <el-footer></el-footer>
     </el-container>
@@ -43,6 +43,8 @@ import VideoReq from './components/VideoReq.vue'
 import DelayReq from './components/DelayReq.vue'
 import ChatESReq from './components/ChatESReq.vue'
 import ChatFReq from './components/ChatFReq.vue'
+import FileIframe from './components/FileIframe.vue'
+import FileCanvas from './components/FileCanvas.vue'
 
 // 暗黑模式
 const isDark = useDark()
