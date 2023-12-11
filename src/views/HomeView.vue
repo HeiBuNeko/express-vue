@@ -26,8 +26,8 @@
         </el-row>
         <!-- Iframe 文件浏览 -->
         <FileIframe />
-        <!-- Canvas 文件浏览 -->
-        <FileCanvas />
+        <!-- Render 文件浏览 -->
+        <FileRender />
       </el-main>
       <el-footer></el-footer>
     </el-container>
@@ -44,11 +44,11 @@ import DelayReq from './components/DelayReq.vue'
 import ChatESReq from './components/ChatESReq.vue'
 import ChatFReq from './components/ChatFReq.vue'
 import FileIframe from './components/FileIframe.vue'
-import FileCanvas from './components/FileCanvas.vue'
+import FileRender from './components/FileRender.vue'
 
 // 暗黑模式
 const isDark = useDark()
-const toggleDark = useToggle(isDark)
+const toggleDark = () => useToggle(isDark)
 </script>
 
 <style scoped lang="scss">
