@@ -2,8 +2,8 @@
   <el-row>
     <el-col :span="24">
       <el-card shadow="hover" class="card-layout">
-        <template #header> Canvas 文件浏览 </template>
-        <!-- Canvas 文件浏览 -->
+        <template #header> Render 文件浏览 </template>
+        <!-- Render 文件浏览 -->
         <el-button type="primary" plain @click="previewDOCX">浏览DOCX</el-button>
         <el-button type="primary" plain @click="previewXLSX">浏览XLSX</el-button>
         <el-button type="primary" plain @click="previewPDF">浏览PDF</el-button>

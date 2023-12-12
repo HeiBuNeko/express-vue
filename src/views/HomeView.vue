@@ -28,6 +28,8 @@
         <FileIframe />
         <!-- Render 文件浏览 -->
         <FileRender />
+        <!-- Plugin 文件浏览 -->
+        <FilePlugin />
       </el-main>
       <el-footer></el-footer>
     </el-container>
@@ -45,6 +47,7 @@ import ChatESReq from './components/ChatESReq.vue'
 import ChatFReq from './components/ChatFReq.vue'
 import FileIframe from './components/FileIframe.vue'
 import FileRender from './components/FileRender.vue'
+import FilePlugin from './components/FilePlugin.vue'
 
 // 暗黑模式
 const isDark = useDark()
