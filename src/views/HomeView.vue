@@ -30,6 +30,8 @@
         <FileRender />
         <!-- Plugin 文件浏览 -->
         <FilePlugin />
+        <!-- Drag 底层原理 -->
+        <DragOrigin />
       </el-main>
       <el-footer></el-footer>
     </el-container>
@@ -48,6 +50,7 @@ import ChatFReq from './components/ChatFReq.vue'
 import FileIframe from './components/FileIframe.vue'
 import FileRender from './components/FileRender.vue'
 import FilePlugin from './components/FilePlugin.vue'
+import DragOrigin from './components/DragOrigin.vue'
 
 // 暗黑模式
 const isDark = useDark()
