@@ -1,6 +1,6 @@
 <template>
   <el-col :span="12">
-    <el-card shadowshadow="hover" class="card-layout">
+    <el-card shadow="hover" class="card-layout">
       <template #header>Drag Vue插件</template>
       <el-row :gutter="20">
         <el-col :span="12">

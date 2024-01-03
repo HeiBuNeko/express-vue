@@ -36,6 +36,8 @@
           <!-- Drag Vue插件 -->
           <DragPlugin />
         </el-row>
+        <!-- Drag 拖拽编组 -->
+        <DragGroup />
       </el-main>
       <el-footer></el-footer>
     </el-container>
@@ -56,6 +58,7 @@ import FileRender from './components/FileRender.vue'
 import FilePlugin from './components/FilePlugin.vue'
 import DragOrigin from './components/DragOrigin.vue'
 import DragPlugin from './components/DragPlugin.vue'
+import DragGroup from './components/DragGroup.vue'
 
 // 暗黑模式
 const isDark = useDark()
