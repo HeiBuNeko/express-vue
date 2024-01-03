@@ -51,17 +51,20 @@ import Sunny from '~icons/ep/Sunny'
 import IconEpMoon from '~icons/ep/Moon'
 import { useDark, useToggle } from '@vueuse/core'
 
-import VideoReq from './components/VideoReq.vue'
-import DelayReq from './components/DelayReq.vue'
-import ChatESReq from './components/ChatESReq.vue'
-import ChatFReq from './components/ChatFReq.vue'
-import FileIframe from './components/FileIframe.vue'
-import FileRender from './components/FileRender.vue'
-import FilePlugin from './components/FilePlugin.vue'
-import DragOrigin from './components/DragOrigin.vue'
-import DragPlugin from './components/DragPlugin.vue'
-import DragGroup from './components/DragGroup.vue'
-import DragElement from './components/DragElement.vue'
+// Req
+import VideoReq from './components/Req/VideoReq.vue'
+import DelayReq from './components/Req/DelayReq.vue'
+import ChatESReq from './components/Req/ChatESReq.vue'
+import ChatFReq from './components/Req/ChatFReq.vue'
+// File
+import FileIframe from './components/File/FileIframe.vue'
+import FileRender from './components/File/FileRender.vue'
+import FilePlugin from './components/File/FilePlugin.vue'
+// Drag
+import DragOrigin from './components/Drag/DragOrigin.vue'
+import DragPlugin from './components/Drag/DragPlugin.vue'
+import DragGroup from './components/Drag/DragGroup.vue'
+import DragElement from './components/Drag/DragElement.vue'
 
 // 暗黑模式
 const isDark = useDark()
