@@ -38,6 +38,8 @@
         </el-row>
         <!-- Drag 拖拽编组 -->
         <DragGroup />
+        <!-- Drag ElementUI 低代码 -->
+        <DragElement />
       </el-main>
       <el-footer></el-footer>
     </el-container>
@@ -59,6 +61,7 @@ import FilePlugin from './components/FilePlugin.vue'
 import DragOrigin from './components/DragOrigin.vue'
 import DragPlugin from './components/DragPlugin.vue'
 import DragGroup from './components/DragGroup.vue'
+import DragElement from './components/DragElement.vue'
 
 // 暗黑模式
 const isDark = useDark()
