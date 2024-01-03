@@ -1,31 +1,29 @@
 <template>
-  <el-row>
-    <el-col :span="12">
-      <el-card shadow="hover" class="card-layout">
-        <template #header> Drag 底层原理 </template>
-        <el-row :gutter="20">
-          <el-col :span="12">
-            <div class="list">
-              <div
-                class="item"
-                v-for="(item, index) in list"
-                :key="item.id"
-                :draggable="true"
-                @dragstart="onDragStart(index)"
-                @dragover="onDragOver(index)"
-                @dragend="onDragEnd"
-              >
-                {{ item.name }}
-              </div>
+  <el-col :span="12">
+    <el-card shadow="hover" class="card-layout">
+      <template #header> Drag 底层原理 </template>
+      <el-row :gutter="20">
+        <el-col :span="12">
+          <div class="list">
+            <div
+              class="item"
+              v-for="(item, index) in list"
+              :key="item.id"
+              :draggable="true"
+              @dragstart="onDragStart(index)"
+              @dragover="onDragOver(index)"
+              @dragend="onDragEnd"
+            >
+              {{ item.name }}
             </div>
-          </el-col>
-          <el-col :span="12">
-            <pre class="data">{{ list }}</pre>
-          </el-col>
-        </el-row>
-      </el-card>
-    </el-col>
-  </el-row>
+          </div>
+        </el-col>
+        <el-col :span="12">
+          <pre class="data">{{ list }}</pre>
+        </el-col>
+      </el-row>
+    </el-card>
+  </el-col>
 </template>
 
 <script setup lang="ts">
@@ -79,6 +77,7 @@ const onDragEnd = () => {
     margin: 10px;
     cursor: move;
     &:hover {
+      color: #000;
       background-color: #eee;
     }
   }

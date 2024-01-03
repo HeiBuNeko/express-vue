@@ -30,8 +30,12 @@
         <FileRender />
         <!-- Plugin 文件浏览 -->
         <FilePlugin />
-        <!-- Drag 底层原理 -->
-        <DragOrigin />
+        <el-row :gutter="20">
+          <!-- Drag 底层原理 -->
+          <DragOrigin />
+          <!-- Drag Vue插件 -->
+          <DragPlugin />
+        </el-row>
       </el-main>
       <el-footer></el-footer>
     </el-container>
@@ -51,6 +55,7 @@ import FileIframe from './components/FileIframe.vue'
 import FileRender from './components/FileRender.vue'
 import FilePlugin from './components/FilePlugin.vue'
 import DragOrigin from './components/DragOrigin.vue'
+import DragPlugin from './components/DragPlugin.vue'
 
 // 暗黑模式
 const isDark = useDark()
