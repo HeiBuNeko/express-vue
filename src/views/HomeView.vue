@@ -40,6 +40,8 @@
         <DragGroup />
         <!-- Drag ElementUI 低代码 -->
         <DragElement />
+        <!-- Map 高德地图 -->
+        <MapContainer />
       </el-main>
       <el-footer></el-footer>
     </el-container>
@@ -65,6 +67,8 @@ import DragOrigin from './components/Drag/DragOrigin.vue'
 import DragPlugin from './components/Drag/DragPlugin.vue'
 import DragGroup from './components/Drag/DragGroup.vue'
 import DragElement from './components/Drag/DragElement.vue'
+//Map
+import MapContainer from './components/Map/MapContainer.vue'
 
 // 暗黑模式
 const isDark = useDark()
