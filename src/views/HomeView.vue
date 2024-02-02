@@ -42,6 +42,8 @@
         <DragElement />
         <!-- Map 高德地图 -->
         <MapContainer />
+        <!-- Upload 大文件上传 分片 续传 秒传 -->
+        <UploadReq />
       </el-main>
       <el-footer></el-footer>
     </el-container>
@@ -67,8 +69,10 @@ import DragOrigin from './components/Drag/DragOrigin.vue'
 import DragPlugin from './components/Drag/DragPlugin.vue'
 import DragGroup from './components/Drag/DragGroup.vue'
 import DragElement from './components/Drag/DragElement.vue'
-//Map
+// Map
 import MapContainer from './components/Map/MapContainer.vue'
+// Upload
+import UploadReq from './components/Upload/UploadReq.vue' 
 
 // 暗黑模式
 const isDark = useDark()
