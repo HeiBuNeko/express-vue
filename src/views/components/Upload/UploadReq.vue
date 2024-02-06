@@ -6,19 +6,6 @@
         <el-row :gutter="20">
           <el-col :span="8">
             <el-upload
-              v-model:file-list="fileListNormal"
-              class="upload-demo"
-              drag
-              :limit="1"
-              action="http://localhost:3000/upload/normal_file"
-            >
-              普通上传（完整Hash）
-            </el-upload>
-            <el-progress :text-inside="true" :stroke-width="20" :percentage="percentage" />
-            <el-button class="merge-button">合并文件</el-button>
-          </el-col>
-          <el-col :span="8">
-            <el-upload
               v-model:file-list="fileListFull"
               class="upload-demo"
               drag
@@ -53,13 +40,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ElMessage, type UploadRequestHandler, type UploadUserFile } from 'element-plus'
+import { type UploadRequestHandler, type UploadUserFile } from 'element-plus'
 import sparkMD5 from 'spark-md5'
 import axios from '@/utils/request'
 import type { AxiosResponse } from 'axios'
-
-// 文件列表（普通）
-const fileListNormal = ref<UploadUserFile[]>([])
 
 // 分片（10MB）
 const CHUNK_SIZE = 10 * 1024 * 1024
