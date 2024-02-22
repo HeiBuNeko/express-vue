@@ -13,6 +13,10 @@
       </el-header>
       <el-main class="main-layout">
         <el-row :gutter="20">
+          <!-- 默认后端 -->
+          <DefaultReq />
+        </el-row>
+        <el-row :gutter="20">
           <!-- 视频传输 -->
           <VideoReq />
           <!-- 延迟传输 -->
@@ -56,6 +60,7 @@ import IconEpMoon from '~icons/ep/Moon'
 import { useDark, useToggle } from '@vueuse/core'
 
 // Req
+import DefaultReq from './components/Req/DefaultReq.vue'
 import VideoReq from './components/Req/VideoReq.vue'
 import DelayReq from './components/Req/DelayReq.vue'
 import ChatESReq from './components/Req/ChatESReq.vue'

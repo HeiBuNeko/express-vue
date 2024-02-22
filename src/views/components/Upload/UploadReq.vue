@@ -42,7 +42,7 @@
 import { ref } from 'vue'
 import { type UploadRequestHandler, type UploadUserFile } from 'element-plus'
 import sparkMD5 from 'spark-md5'
-import axios from '@/utils/request'
+import request from '@/utils/request'
 import type { AxiosResponse } from 'axios'
 
 // 分片（10MB）
@@ -131,7 +131,7 @@ const uploadChunks = async (
   const taskPool: Promise<AxiosResponse>[] = [] // 请求队列
 
   while (index < formDatas.length) {
-    const task = axios.post('/upload/chunk_file', formDatas[index])
+    const task = request.post('/upload/chunk_file', formDatas[index])
     taskPool.push(task)
     task.then(() => {
       // 请求完成则删除请求
@@ -179,7 +179,7 @@ const handlePartHttpRequest: UploadRequestHandler = async ({ file }) => {
 
 // 合并切片（完整Hash）
 const mergeFullFile = async () => {
-  await axios.post('/upload/merge_file', {
+  await request.post('/upload/merge_file', {
     fileName: fileListFull.value[0].name,
     fileHash: fileHashFull.value,
     size: CHUNK_SIZE
@@ -188,7 +188,7 @@ const mergeFullFile = async () => {
 
 // 合并切片（部分Hash）
 const mergePartFile = async () => {
-  await axios.post('/upload/merge_file', {
+  await request.post('/upload/merge_file', {
     fileName: fileListPart.value[0].name,
     fileHash: fileHashPart.value,
     size: CHUNK_SIZE

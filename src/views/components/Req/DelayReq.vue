@@ -9,12 +9,12 @@
 </template>
 
 <script setup lang="ts">
-import axios from '@/utils/request'
+import request from '@/utils/request'
 
 let controller: AbortController // 终止控制器
 const sendRequeset = () => {
   controller = new AbortController() // 创建终止控制器
-  axios.get('/delay_3s_data', {
+  request.get('/delay_3s_data', {
     signal: controller.signal // 添加请求中止标识
   })
 }

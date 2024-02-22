@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import axios from '@/utils/request'
+import request from '@/utils/request'
 // NProgress
 import NProgress from 'NProgress'
 import 'nprogress/nprogress.css'
@@ -21,7 +21,7 @@ let controller: AbortController // 终止控制器
 const fetchVideo = () => {
   NProgress.start()
   controller = new AbortController() // 创建终止控制器
-  axios
+  request
     .get('/video', {
       // 将中止控制器传递给 axios 的 get 方法
       signal: controller.signal, // 将终止控制器传入请求配置中

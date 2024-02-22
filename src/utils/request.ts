@@ -1,4 +1,4 @@
-import axios, { type AxiosRequestConfig } from 'axios'
+import axios, { AxiosError, type AxiosRequestConfig, type AxiosResponse } from 'axios'
 import axiosRetry from 'axios-retry'
 
 const request = axios.create({
@@ -27,17 +27,24 @@ request.interceptors.response.use(
     // 对响应数据做点什么
     return response
   },
-  function (error) {
+  function (error: AxiosError) {
     // 超出 2xx 范围的状态码都会触发该函数。
     // 对响应错误做点什么
     return Promise.reject(error)
   }
 )
+
 axiosRetry(axios, {
   retries: 3, // 设置重试次数
   retryDelay: () => 500, // 设置重试延迟时间
   shouldResetTimeout: true, // 重置请求超时时间
   retryCondition: (error) => ['ECONNABORTED', 'ERR_NETWORK'].includes(error.code!) // 重试条件
 })
+
+export interface ResponsBody<T = any> {
+  code: number
+  message: string
+  data: T
+}
 
 export default request
