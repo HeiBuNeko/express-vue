@@ -1,11 +1,11 @@
 import request, { type ResponsBody } from '@/utils/request'
 
 export const getDefault = async (data: any) => {
-  const res = await request.post<ResponsBody>('/upload/chunk_file', data)
+  const res = await request.get<ResponsBody>('/get_default', data)
   return res.data
 }
 
 export const postDefault = async (data: any) => {
-  const res = await request.post<ResponsBody>('/upload/merge_file', data)
+  const res = await request.post<ResponsBody>('/post_default', data)
   return res.data
 }
