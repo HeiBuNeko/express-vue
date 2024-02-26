@@ -1,4 +1,4 @@
-import axios, { AxiosError, type AxiosRequestConfig, type AxiosResponse } from 'axios'
+import axios, { AxiosError, type AxiosRequestConfig } from 'axios'
 import axiosRetry from 'axios-retry'
 
 const request = axios.create({
