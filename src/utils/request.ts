@@ -1,5 +1,6 @@
 import axios, { AxiosError, type AxiosRequestConfig } from 'axios'
 import axiosRetry from 'axios-retry'
+// import { ElMessage } from 'element-plus'
 
 const request = axios.create({
   baseURL: 'http://localhost:3000',
@@ -25,11 +26,17 @@ request.interceptors.response.use(
   function (response) {
     // 2xx 范围内的状态码都会触发该函数。
     // 对响应数据做点什么
+    if (response.data.code === 0) {
+      ElMessage.success(`${response.data.msg} ${response.data.data}`)
+    } else {
+      ElMessage.error(response.data.msg)
+    }
     return response
   },
   function (error: AxiosError) {
     // 超出 2xx 范围的状态码都会触发该函数。
     // 对响应错误做点什么
+    ElMessage.error(error.message)
     return Promise.reject(error)
   }
 )

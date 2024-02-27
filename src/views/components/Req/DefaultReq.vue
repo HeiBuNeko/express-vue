@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { getDefault, postDefault } from '@/api/upload'
+import { getDefault, postDefault } from '@/api/default'
 
 const get = async () => {
   const res = await getDefault({ params: { name: 'HeiBuNeko' } })
