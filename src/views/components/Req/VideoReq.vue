@@ -12,7 +12,7 @@
 import { ref } from 'vue'
 import request from '@/utils/request'
 // NProgress
-import NProgress from 'NProgress'
+import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
 const progress = ref(0)

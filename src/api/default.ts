@@ -9,3 +9,8 @@ export const postDefault = async (data: any) => {
   const res = await request.post<ResponsBody>('/post_default', data)
   return res.data
 }
+
+export const deleteDefault = async (data: any) => {
+  const res = await request.delete<ResponsBody>('/delete_default', data)
+  return res.data
+}
