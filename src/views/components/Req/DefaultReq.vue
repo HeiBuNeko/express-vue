@@ -2,28 +2,32 @@
   <el-col :span="12">
     <el-card shadow="hover" class="card-layout">
       <template #header> 默认后端 </template>
-      <el-button type="primary" plain @click="getApi">GET</el-button>
-      <el-button type="warning" plain @click="postApi">POST</el-button>
-      <el-button type="danger" plain @click="deleteApi">DELETE</el-button>
+      <el-button type="primary" plain @click="getDefault">GET</el-button>
+      <el-button type="warning" plain @click="postDefault">POST</el-button>
+      <el-button type="danger" plain @click="deleteDefault">DELETE</el-button>
     </el-card>
   </el-col>
 </template>
 
 <script setup lang="ts">
-import { getDefault, postDefault, deleteDefault } from '@/api/default'
+import { getDefaultAPI, postDefaultAPI, deleteDefaultAPI } from '@/api/default'
 
-const getApi = async () => {
-  const res = await getDefault({ params: { name: 'HeiBuNeko' } })
+const getDefault = async () => {
+  const res = await getDefaultAPI({ params: { name: 'HeiBuNeko' } })
   console.log(res)
 }
-const postApi = async () => {
-  const res = await postDefault({ name: 'HeiBuNeko' })
+const postDefault = async () => {
+  const res = await postDefaultAPI({ name: 'HeiBuNeko' })
   console.log(res)
 }
-const deleteApi = async () => {
-  const res = await deleteDefault({ params: { name: 'HeiBuNeko' } })
+const deleteDefault = async () => {
+  const res = await deleteDefaultAPI({ params: { name: 'HeiBuNeko' } })
   console.log(res)
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.card-layout {
+  height: 100%;
+}
+</style>

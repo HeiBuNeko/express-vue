@@ -1,6 +1,6 @@
 import axios, { AxiosError, type AxiosRequestConfig } from 'axios'
 import axiosRetry from 'axios-retry'
-// import { ElMessage } from 'element-plus'
+import { useLoginStore } from '@/stores/login'
 
 const request = axios.create({
   baseURL: 'http://localhost:3000',
@@ -13,6 +13,8 @@ const request = axios.create({
 request.interceptors.request.use(
   function (config) {
     // 在发送请求之前做些什么
+    const loginStore = useLoginStore()
+    config.headers.Authorization = 'Bearer ' + loginStore.token
     return config
   },
   function (error) {
@@ -27,7 +29,7 @@ request.interceptors.response.use(
     // 2xx 范围内的状态码都会触发该函数。
     // 对响应数据做点什么
     if (response.data.code === 0) {
-      ElMessage.success(`${response.data.msg} ${response.data.data ?? ''}`)
+      ElMessage.success(`${response.data.msg}`)
     } else {
       ElMessage.error(response.data.msg)
     }
