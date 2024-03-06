@@ -15,6 +15,8 @@
         <el-row :gutter="20">
           <!-- 默认后端 -->
           <DefaultReq />
+          <!-- 默认后端 -->
+          <LoginReq />
         </el-row>
         <el-row :gutter="20">
           <!-- 视频传输 -->
@@ -61,6 +63,7 @@ import { useDark, useToggle } from '@vueuse/core'
 
 // Req
 import DefaultReq from './components/Req/DefaultReq.vue'
+import LoginReq from './components/Req/LoginReq.vue'
 import VideoReq from './components/Req/VideoReq.vue'
 import DelayReq from './components/Req/DelayReq.vue'
 import ChatESReq from './components/Req/ChatESReq.vue'
@@ -77,7 +80,7 @@ import DragElement from './components/Drag/DragElement.vue'
 // Map
 import MapContainer from './components/Map/MapContainer.vue'
 // Upload
-import UploadReq from './components/Upload/UploadReq.vue' 
+import UploadReq from './components/Upload/UploadReq.vue'
 
 // 暗黑模式
 const isDark = useDark()
