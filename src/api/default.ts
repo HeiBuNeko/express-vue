@@ -1,16 +1,16 @@
-import request, { type ResponsBody } from '@/utils/request'
+import request, { type ResponseBody } from '@/utils/request'
 
 export const getDefaultAPI = async (data: any) => {
-  const res = await request.get<ResponsBody>('/get_default', data)
+  const res = await request.get<ResponseBody>('/get_default', data)
   return res.data
 }
 
 export const postDefaultAPI = async (data: any) => {
-  const res = await request.post<ResponsBody>('/post_default', data)
+  const res = await request.post<ResponseBody>('/post_default', data)
   return res.data
 }
 
 export const deleteDefaultAPI = async (data: any) => {
-  const res = await request.delete<ResponsBody>('/delete_default', data)
+  const res = await request.delete<ResponseBody>('/delete_default', data)
   return res.data
 }

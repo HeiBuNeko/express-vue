@@ -1,4 +1,4 @@
-import axios, { AxiosError, type AxiosRequestConfig } from 'axios'
+import axios, { AxiosError, type AxiosRequestConfig, type AxiosResponse } from 'axios'
 import axiosRetry from 'axios-retry'
 import { useLoginStore } from '@/stores/login'
 
@@ -25,12 +25,12 @@ request.interceptors.request.use(
 
 // 添加响应拦截器
 request.interceptors.response.use(
-  function (response) {
+  function (response: AxiosResponse<ResponseBody>) {
     // 2xx 范围内的状态码都会触发该函数。
     // 对响应数据做点什么
     if (response.data.code === 0) {
       ElMessage.success(`${response.data.msg}`)
-    } else {
+    } else if (response.data.code === 1) {
       ElMessage.error(response.data.msg)
     }
     return response
@@ -50,9 +50,9 @@ axiosRetry(axios, {
   retryCondition: (error) => ['ECONNABORTED', 'ERR_NETWORK'].includes(error.code!) // 重试条件
 })
 
-export interface ResponsBody<T = any> {
+export interface ResponseBody<T = any> {
   code: number
-  message: string
+  msg: string
   data: T
 }
 
