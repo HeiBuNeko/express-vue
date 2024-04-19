@@ -6,7 +6,7 @@
         <el-switch
           v-model="isDark"
           size="large"
-          :active-action-icon="IconEpMoon"
+          :active-action-icon="Moon"
           :inactive-action-icon="Sunny"
           @change="toggleDark"
         />
@@ -57,9 +57,8 @@
 </template>
 
 <script setup lang="ts">
-import Sunny from '~icons/ep/Sunny'
-import IconEpMoon from '~icons/ep/Moon'
-import { useDark, useToggle } from '@vueuse/core'
+import { ref } from 'vue'
+import { Sunny, Moon } from '@element-plus/icons-vue'
 
 // Req
 import DefaultReq from './components/Req/DefaultReq.vue'
@@ -83,22 +82,25 @@ import MapContainer from './components/Map/MapContainer.vue'
 import UploadReq from './components/Upload/UploadReq.vue'
 
 // 暗黑模式
-const isDark = useDark()
-const toggleDark = () => useToggle(isDark)
+const isDark = ref(true)
+const toggleDark = () => {
+  const html = document.querySelector('html')
+  const currentTheme = html?.getAttribute('class')
+  html?.setAttribute('class', currentTheme === 'dark' ? 'light' : 'dark')
+}
 </script>
 
 <style scoped lang="scss">
 .common-layout {
   .header-layout {
-    height: 10vh;
-    border: 1px solid skyblue;
+    margin-top: 10px;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   .main-layout {
-    .el-row {
+    .el-row:nth-child(n + 2) {
       margin-top: 20px;
     }
   }
