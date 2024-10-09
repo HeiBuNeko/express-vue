@@ -1,12 +1,35 @@
 <template>
   <el-row>
     <el-col :span="24">
-      <el-card shadow="hover" class="card-layout">
-        <template #header> Plugin 文件浏览 </template>
+      <el-card
+        shadow="hover"
+        class="card-layout"
+      >
+        <template #header>
+          Plugin 文件浏览
+        </template>
         <!-- Vue Office 组件 -->
-        <el-button type="primary" plain @click="previewDOCX">浏览DOCX</el-button>
-        <el-button type="primary" plain @click="previewXLSX">浏览XLSX</el-button>
-        <el-button type="primary" plain @click="previewPDF">浏览PDF</el-button>
+        <el-button
+          type="primary"
+          plain
+          @click="previewDOCX"
+        >
+          浏览DOCX
+        </el-button>
+        <el-button
+          type="primary"
+          plain
+          @click="previewXLSX"
+        >
+          浏览XLSX
+        </el-button>
+        <el-button
+          type="primary"
+          plain
+          @click="previewPDF"
+        >
+          浏览PDF
+        </el-button>
       </el-card>
     </el-col>
   </el-row>

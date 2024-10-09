@@ -1,20 +1,39 @@
 <template>
   <el-row>
     <el-col :span="24">
-      <el-card shadow="hover" class="card-layout">
-        <template #header>Drag 拖拽编组</template>
+      <el-card
+        shadow="hover"
+        class="card-layout"
+      >
+        <template #header>
+          Drag 拖拽编组
+        </template>
         <el-row :gutter="20">
           <el-col :span="6">
-            <draggable class="list" v-model="listA" item-key="id" group="group">
+            <draggable
+              v-model="listA"
+              class="list"
+              item-key="id"
+              group="group"
+            >
               <template #item="{ element }">
-                <div class="item">{{ element.name }}</div>
+                <div class="item">
+                  {{ element.name }}
+                </div>
               </template>
             </draggable>
           </el-col>
           <el-col :span="6">
-            <draggable class="list" v-model="listB" item-key="id" group="group">
+            <draggable
+              v-model="listB"
+              class="list"
+              item-key="id"
+              group="group"
+            >
               <template #item="{ element }">
-                <div class="item">{{ element.name }}</div>
+                <div class="item">
+                  {{ element.name }}
+                </div>
               </template>
             </draggable>
           </el-col>

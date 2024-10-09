@@ -1,26 +1,40 @@
 <template>
   <el-row>
     <el-col :span="24">
-      <el-card shadow="hover" class="card-layout">
-        <template #header>Drag ElementUI 低代码（需ElementUI全局导入）</template>
+      <el-card
+        shadow="hover"
+        class="card-layout"
+      >
+        <template #header>
+          Drag ElementUI 低代码（需ElementUI全局导入）
+        </template>
         <el-container class="container">
           <el-aside class="aside">
             <draggable
-              class="list"
               v-model="ElTagList"
+              class="list"
               item-key="id"
               :group="{ name: 'components', pull: 'clone', put: false }"
             >
               <template #item="{ element }">
-                <div class="item">{{ element.tag }}</div>
+                <div class="item">
+                  {{ element.tag }}
+                </div>
               </template>
             </draggable>
           </el-aside>
           <el-main class="main">
-            <draggable v-model="ElUIList" item-key="id" group="components">
+            <draggable
+              v-model="ElUIList"
+              item-key="id"
+              group="components"
+            >
               <!-- is: 组件名 v-bind: 动态 props -->
               <template #item="{ element }">
-                <component :is="element.tag" v-bind="element.props">
+                <component
+                  :is="element.tag"
+                  v-bind="element.props"
+                >
                   {{ element.text }}
                 </component>
               </template>

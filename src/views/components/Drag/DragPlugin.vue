@@ -1,12 +1,23 @@
 <template>
   <el-col :span="12">
-    <el-card shadow="hover" class="card-layout">
-      <template #header>Drag Vue插件</template>
+    <el-card
+      shadow="hover"
+      class="card-layout"
+    >
+      <template #header>
+        Drag Vue插件
+      </template>
       <el-row :gutter="20">
         <el-col :span="12">
-          <draggable class="list" v-model="list" item-key="id">
+          <draggable
+            v-model="list"
+            class="list"
+            item-key="id"
+          >
             <template #item="{ element }">
-              <div class="item">{{ element.name }}</div>
+              <div class="item">
+                {{ element.name }}
+              </div>
             </template>
           </draggable>
         </el-col>

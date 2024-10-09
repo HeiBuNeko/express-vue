@@ -51,7 +51,7 @@
         <!-- Upload 大文件上传 分片 续传 秒传 -->
         <UploadReq />
       </el-main>
-      <el-footer></el-footer>
+      <el-footer />
     </el-container>
   </div>
 </template>

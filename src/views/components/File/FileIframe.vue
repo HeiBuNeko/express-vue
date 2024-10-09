@@ -1,22 +1,62 @@
 <template>
   <el-row>
     <el-col :span="24">
-      <el-card shadow="hover" class="card-layout">
-        <template #header> Iframe 文件浏览 </template>
+      <el-card
+        shadow="hover"
+        class="card-layout"
+      >
+        <template #header>
+          Iframe 文件浏览
+        </template>
         <!-- 微软 Office Web Viewer 服务 -->
-        <el-button type="primary" plain @click="iframeUrl = officeUrl + docx">浏览DOCX</el-button>
-        <el-button type="primary" plain @click="iframeUrl = officeUrl + xlsx">浏览XLSX</el-button>
-        <el-button type="primary" plain @click="iframeUrl = officeUrl + pptx">浏览PPTX</el-button>
+        <el-button
+          type="primary"
+          plain
+          @click="iframeUrl = officeUrl + docx"
+        >
+          浏览DOCX
+        </el-button>
+        <el-button
+          type="primary"
+          plain
+          @click="iframeUrl = officeUrl + xlsx"
+        >
+          浏览XLSX
+        </el-button>
+        <el-button
+          type="primary"
+          plain
+          @click="iframeUrl = officeUrl + pptx"
+        >
+          浏览PPTX
+        </el-button>
         <!-- pdf 直接预览 -->
-        <el-button type="primary" plain @click="iframeUrl = pdf">浏览PDF</el-button>
+        <el-button
+          type="primary"
+          plain
+          @click="iframeUrl = pdf"
+        >
+          浏览PDF
+        </el-button>
         <!-- 复制分享地址 -->
-        <el-button type="primary" plain @click="copyToClipboard">复制地址</el-button>
+        <el-button
+          type="primary"
+          plain
+          @click="copyToClipboard"
+        >
+          复制地址
+        </el-button>
       </el-card>
     </el-col>
   </el-row>
   <el-row>
     <el-col :span="24">
-      <iframe height="600px" width="100%" :src="iframeUrl" frameborder="0"></iframe>
+      <iframe
+        height="600px"
+        width="100%"
+        :src="iframeUrl"
+        frameborder="0"
+      />
     </el-col>
   </el-row>
 </template>
