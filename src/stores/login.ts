@@ -11,6 +11,6 @@ export const useLoginStore = defineStore(
     return { token, setToken }
   },
   {
-    persist: true
-  }
+    persist: true,
+  },
 )

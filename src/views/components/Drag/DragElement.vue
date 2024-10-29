@@ -1,10 +1,7 @@
 <template>
   <el-row>
     <el-col :span="24">
-      <el-card
-        shadow="hover"
-        class="card-layout"
-      >
+      <el-card shadow="hover" class="card-layout">
         <template #header>
           Drag ElementUI 低代码（需ElementUI全局导入）
         </template>
@@ -24,17 +21,10 @@
             </draggable>
           </el-aside>
           <el-main class="main">
-            <draggable
-              v-model="ElUIList"
-              item-key="id"
-              group="components"
-            >
+            <draggable v-model="ElUIList" item-key="id" group="components">
               <!-- is: 组件名 v-bind: 动态 props -->
               <template #item="{ element }">
-                <component
-                  :is="element.tag"
-                  v-bind="element.props"
-                >
+                <component :is="element.tag" v-bind="element.props">
                   {{ element.text }}
                 </component>
               </template>
@@ -55,17 +45,17 @@ const ElTagList = ref([
     id: 1,
     tag: 'el-button',
     props: {
-      type: 'primary'
+      type: 'primary',
     },
-    text: '按钮'
+    text: '按钮',
   },
   {
     id: 2,
     tag: 'el-input',
     props: {
-      placeholder: '请输入内容'
-    }
-  }
+      placeholder: '请输入内容',
+    },
+  },
 ])
 
 const ElUIList = ref([
@@ -73,10 +63,10 @@ const ElUIList = ref([
     id: 1,
     tag: 'el-button',
     props: {
-      type: 'primary'
+      type: 'primary',
     },
-    text: '按钮'
-  }
+    text: '按钮',
+  },
 ])
 </script>
 

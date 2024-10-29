@@ -4,8 +4,12 @@
       <el-card shadow="hover" class="card-layout">
         <template #header> Render 文件浏览 </template>
         <!-- Render 文件浏览 -->
-        <el-button type="primary" plain @click="previewDOCX">浏览DOCX</el-button>
-        <el-button type="primary" plain @click="previewXLSX">浏览XLSX</el-button>
+        <el-button type="primary" plain @click="previewDOCX"
+          >浏览DOCX</el-button
+        >
+        <el-button type="primary" plain @click="previewXLSX"
+          >浏览XLSX</el-button
+        >
         <el-button type="primary" plain @click="previewPDF">浏览PDF</el-button>
       </el-card>
     </el-col>
@@ -49,21 +53,23 @@ const previewPDF = async () => {
   showDiv.value = false
   showTable.value = false
   // 获取文件
-  await getFile('https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/solution/demo.pdf')
+  await getFile(
+    'https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/solution/demo.pdf',
+  )
   // 获取 canvas
   const canvas = canvasRef.value
   if (file.value && canvas) {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
     const data = new Uint8Array(file.value)
-    pdfjsLib.getDocument({ data }).promise.then((pdf) => {
-      pdf.getPage(1).then((page) => {
+    pdfjsLib.getDocument({ data }).promise.then(pdf => {
+      pdf.getPage(1).then(page => {
         const viewport = page.getViewport({ scale: 1.5 })
         canvas.width = viewport.width
         canvas.height = viewport.height
         page.render({
           canvasContext: ctx,
-          viewport
+          viewport,
         })
       })
     })
@@ -75,7 +81,9 @@ const previewDOCX = async () => {
   showCanvas.value = false
   showDiv.value = true
   showTable.value = false
-  await getFile('https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/solution/demo.docx')
+  await getFile(
+    'https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/solution/demo.docx',
+  )
   if (file.value && divRef.value) {
     // defaultOptions 为默认配置，可不传
     await renderAsync(file.value, divRef.value)
@@ -87,7 +95,9 @@ const previewXLSX = async () => {
   showCanvas.value = false
   showDiv.value = false
   showTable.value = true
-  await getFile('https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/solution/demo.xlsx')
+  await getFile(
+    'https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/solution/demo.xlsx',
+  )
   if (file.value) {
     const sheet = read(file.value).Sheets
     tableData.value = utils.sheet_to_json(sheet['Data'])

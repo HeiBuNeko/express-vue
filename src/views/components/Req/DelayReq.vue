@@ -15,7 +15,7 @@ let controller: AbortController // 终止控制器
 const sendRequeset = () => {
   controller = new AbortController() // 创建终止控制器
   request.get('/delay_3s_data', {
-    signal: controller.signal // 添加请求中止标识
+    signal: controller.signal, // 添加请求中止标识
   })
 }
 

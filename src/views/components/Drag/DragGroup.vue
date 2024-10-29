@@ -1,21 +1,11 @@
 <template>
   <el-row>
     <el-col :span="24">
-      <el-card
-        shadow="hover"
-        class="card-layout"
-      >
-        <template #header>
-          Drag 拖拽编组
-        </template>
+      <el-card shadow="hover" class="card-layout">
+        <template #header> Drag 拖拽编组 </template>
         <el-row :gutter="20">
           <el-col :span="6">
-            <draggable
-              v-model="listA"
-              class="list"
-              item-key="id"
-              group="group"
-            >
+            <draggable v-model="listA" class="list" item-key="id" group="group">
               <template #item="{ element }">
                 <div class="item">
                   {{ element.name }}
@@ -24,12 +14,7 @@
             </draggable>
           </el-col>
           <el-col :span="6">
-            <draggable
-              v-model="listB"
-              class="list"
-              item-key="id"
-              group="group"
-            >
+            <draggable v-model="listB" class="list" item-key="id" group="group">
               <template #item="{ element }">
                 <div class="item">
                   {{ element.name }}
@@ -58,7 +43,7 @@ const listA = ref([
   { id: 11, name: 'DragGroupA 1' },
   { id: 12, name: 'DragGroupA 2' },
   { id: 13, name: 'DragGroupA 3' },
-  { id: 14, name: 'DragGroupA 4' }
+  { id: 14, name: 'DragGroupA 4' },
 ])
 
 const listB = ref([
@@ -66,7 +51,7 @@ const listB = ref([
   { id: 21, name: 'DragGroupB 1' },
   { id: 22, name: 'DragGroupB 2' },
   { id: 23, name: 'DragGroupB 3' },
-  { id: 24, name: 'DragGroupB 4' }
+  { id: 24, name: 'DragGroupB 4' },
 ])
 </script>
 

@@ -1,33 +1,10 @@
 <template>
   <el-col :span="12">
-    <el-card
-      shadow="hover"
-      class="card-layout"
-    >
-      <template #header>
-        默认后端
-      </template>
-      <el-button
-        type="primary"
-        plain
-        @click="getDefault"
-      >
-        GET
-      </el-button>
-      <el-button
-        type="warning"
-        plain
-        @click="postDefault"
-      >
-        POST
-      </el-button>
-      <el-button
-        type="danger"
-        plain
-        @click="deleteDefault"
-      >
-        DELETE
-      </el-button>
+    <el-card shadow="hover" class="card-layout">
+      <template #header> 默认后端 </template>
+      <el-button type="primary" plain @click="getDefault"> GET </el-button>
+      <el-button type="warning" plain @click="postDefault"> POST </el-button>
+      <el-button type="danger" plain @click="deleteDefault"> DELETE </el-button>
     </el-card>
   </el-col>
 </template>

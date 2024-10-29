@@ -26,12 +26,12 @@ const fetchVideo = () => {
       // 将中止控制器传递给 axios 的 get 方法
       signal: controller.signal, // 将终止控制器传入请求配置中
       responseType: 'arraybuffer', // 指定响应数据类型为 arraybuffer
-      onDownloadProgress: (progressEvent) => {
+      onDownloadProgress: progressEvent => {
         progress.value = progressEvent.loaded / progressEvent.total!
         NProgress.set(progress.value)
-      }
+      },
     })
-    .then((res) => {
+    .then(res => {
       // 保存下载的文件
       const { buffer } = new Uint8Array(res.data)
       const blob = new Blob([buffer], { type: 'application/octet-stream' })
@@ -41,7 +41,7 @@ const fetchVideo = () => {
       link.download = 'video.mp4'
       link.click()
     })
-    .catch((err) => {
+    .catch(err => {
       if (err.name === 'CanceledError') {
         console.log('下载被取消', err.message)
       } else if (err.name === 'AbortError') {

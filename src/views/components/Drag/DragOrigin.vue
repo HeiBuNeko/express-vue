@@ -37,7 +37,7 @@ const list = ref([
   { id: 11, name: 'DragItem 1' },
   { id: 12, name: 'DragItem 2' },
   { id: 13, name: 'DragItem 3' },
-  { id: 14, name: 'DragItem 4' }
+  { id: 14, name: 'DragItem 4' },
 ])
 
 // 拖拽开始

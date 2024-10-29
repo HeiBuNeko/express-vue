@@ -10,12 +10,21 @@
               class="upload-demo"
               drag
               :limit="1"
-              :http-request="(option: UploadRequestOptions) => handleHttpRequest(option, 'full')"
+              :http-request="
+                (option: UploadRequestOptions) =>
+                  handleHttpRequest(option, 'full')
+              "
             >
               分片上传（完整Hash）
             </el-upload>
-            <el-progress :text-inside="true" :stroke-width="20" :percentage="percentageFull" />
-            <el-button class="merge-button" @click="mergeFile('full')">合并文件</el-button>
+            <el-progress
+              :text-inside="true"
+              :stroke-width="20"
+              :percentage="percentageFull"
+            />
+            <el-button class="merge-button" @click="mergeFile('full')"
+              >合并文件</el-button
+            >
           </el-col>
           <el-col :span="8">
             <el-upload
@@ -23,12 +32,21 @@
               class="upload-demo"
               drag
               :limit="1"
-              :http-request="(option: UploadRequestOptions) => handleHttpRequest(option, 'part')"
+              :http-request="
+                (option: UploadRequestOptions) =>
+                  handleHttpRequest(option, 'part')
+              "
             >
               分片上传（部分Hash）
             </el-upload>
-            <el-progress :text-inside="true" :stroke-width="20" :percentage="percentagePart" />
-            <el-button class="merge-button" @click="mergeFile('part')">合并文件</el-button>
+            <el-progress
+              :text-inside="true"
+              :stroke-width="20"
+              :percentage="percentagePart"
+            />
+            <el-button class="merge-button" @click="mergeFile('part')"
+              >合并文件</el-button
+            >
           </el-col>
         </el-row>
       </el-card>
@@ -53,7 +71,7 @@ const createFileChunks = (file: File) => {
   let cur = 0
   while (cur < file.size) {
     fileChunkList.push({
-      file: file.slice(cur, cur + CHUNK_SIZE)
+      file: file.slice(cur, cur + CHUNK_SIZE),
     })
     cur += CHUNK_SIZE // CHUNK_SIZE为分片大小
   }
@@ -62,11 +80,11 @@ const createFileChunks = (file: File) => {
 
 // 计算文件的Hash值（完整）
 const calculateAllHash = async (file: File): Promise<string> => {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     const spark = new sparkMD5.ArrayBuffer()
     const reader = new FileReader()
     reader.readAsArrayBuffer(file)
-    reader.onload = (e) => {
+    reader.onload = e => {
       spark.append(e.target?.result as ArrayBuffer)
       resolve(spark.end())
     }
@@ -77,8 +95,10 @@ const calculateAllHash = async (file: File): Promise<string> => {
 }
 
 // 计算文件的Hash值（部分）
-const calculatePartHash = async (fileChunks: Array<{ file: Blob }>): Promise<string> => {
-  return new Promise((resolve) => {
+const calculatePartHash = async (
+  fileChunks: Array<{ file: Blob }>,
+): Promise<string> => {
+  return new Promise(resolve => {
     const spark = new sparkMD5.ArrayBuffer()
     const chunks: Blob[] = []
     fileChunks.forEach((chunk, index) => {
@@ -97,7 +117,7 @@ const calculatePartHash = async (fileChunks: Array<{ file: Blob }>): Promise<str
     })
     const reader = new FileReader()
     reader.readAsArrayBuffer(new Blob(chunks))
-    reader.onload = (e) => {
+    reader.onload = e => {
       spark.append(e.target?.result as ArrayBuffer)
       resolve(spark.end())
     }
@@ -117,7 +137,7 @@ const uploadChunks = async (
   fileChunks: Array<{ file: Blob }>,
   fileHash: string,
   fileName: string,
-  type: string
+  type: string,
 ) => {
   const formDatas = fileChunks
     .filter((chunk, index) => !uploadedList.includes(`${fileHash}-${index}`))
@@ -140,7 +160,7 @@ const uploadChunks = async (
     taskPool.push(task)
     task.then(() => {
       // 请求完成则删除请求
-      const taskIndex = taskPool.findIndex((item) => item === task)
+      const taskIndex = taskPool.findIndex(item => item === task)
       taskPool.splice(taskIndex, 1)
       // 进度条
       if (type === 'full') {
@@ -166,11 +186,14 @@ const fileHashPart = ref('')
 
 type UploadRequestHandler = (
   options: UploadRequestOptions,
-  type: string
+  type: string,
 ) => XMLHttpRequest | Promise<unknown>
 
 // 覆盖默认的 Xhr 行为
-const handleHttpRequest: UploadRequestHandler = async ({ file }, type: string) => {
+const handleHttpRequest: UploadRequestHandler = async (
+  { file },
+  type: string,
+) => {
   // 文件切片
   const fileChunkList = createFileChunks(file)
   console.log('文件分片 fileChunkList', fileChunkList)
@@ -184,7 +207,13 @@ const handleHttpRequest: UploadRequestHandler = async ({ file }, type: string) =
     console.log('通过Hash验证文件已上传（秒传功能）', data)
 
     if (data.shouldUpload) {
-      await uploadChunks(data.uploadedList, fileChunkList, fileHashFull.value, file.name, type)
+      await uploadChunks(
+        data.uploadedList,
+        fileChunkList,
+        fileHashFull.value,
+        file.name,
+        type,
+      )
     } else {
       ElMessage.success('秒传成功')
       percentageFull.value = 100
@@ -197,7 +226,13 @@ const handleHttpRequest: UploadRequestHandler = async ({ file }, type: string) =
     const { data } = await verifyFileAPI(file.name, fileHashPart.value)
     console.log('通过Hash验证文件已上传（秒传功能）', data)
     if (data.shouldUpload) {
-      await uploadChunks(data.uploadedList, fileChunkList, fileHashPart.value, file.name, type)
+      await uploadChunks(
+        data.uploadedList,
+        fileChunkList,
+        fileHashPart.value,
+        file.name,
+        type,
+      )
     } else {
       ElMessage.success('秒传成功')
       percentagePart.value = 100
@@ -208,9 +243,17 @@ const handleHttpRequest: UploadRequestHandler = async ({ file }, type: string) =
 // 合并切片
 const mergeFile = async (type: string) => {
   if (type === 'full') {
-    await mergeFileAPI(fileListFull.value[0].name, fileHashFull.value, CHUNK_SIZE)
+    await mergeFileAPI(
+      fileListFull.value[0].name,
+      fileHashFull.value,
+      CHUNK_SIZE,
+    )
   } else {
-    await mergeFileAPI(fileListPart.value[0].name, fileHashPart.value, CHUNK_SIZE)
+    await mergeFileAPI(
+      fileListPart.value[0].name,
+      fileHashPart.value,
+      CHUNK_SIZE,
+    )
   }
 }
 </script>
