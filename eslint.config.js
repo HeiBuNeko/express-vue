@@ -12,11 +12,10 @@ export default [
     name: 'app/files-to-ignore',
     ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**'],
   },
-
-  ...pluginVue.configs['flat/essential'],
-  ...vueTsEslintConfig(),
   {
     rules: { '@typescript-eslint/no-explicit-any': 'warn' },
   },
+  ...pluginVue.configs['flat/essential'],
+  ...vueTsEslintConfig(),
   skipFormatting,
 ]
